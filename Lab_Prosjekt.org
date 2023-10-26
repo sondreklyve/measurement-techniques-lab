@@ -1,0 +1,55 @@
+#+title: Lab Prosjekt
+
+* Mikrofon
+** Bode plot målinger
+Input amplitude: 30mVpp
+Input offset: 100mV
+
+| Input frekvens (Hz) | Output Vpp (V) | Phase (deg) |
+|---------------------+----------------+-------------|
+|                  10 |           1.44 |        -136 |
+|                  30 |           1.96 |        -164 |
+|                 100 |           2.08 |        -177 |
+|                 300 |           2.08 |        -179 |
+|                1000 |           2.10 |        -188 |
+|                3000 |           2.02 |        -200 |
+|               10000 |           1.56 |        -225 |
+|               30000 |           0.71 |        -278 |
+|              100000 |           0.24 |        -293 |
+
+* Filter
+** Low pass filter
+R1: 10k
+R2: 10k
+C1: 10n
+C2: 10n
+f0 = 1.59kHz
+
+** High pass filter
+R1: 15k
+R2: 15k
+C1: 10n
+C2: 10n
+f0 = 1.06kHz
+
+** Bandpass filter
+Bandwidth: f0_l - f0_h = 0.53kHz
+
+** Bode plot målinger
+
+Input amplitude: 30mVpp
+Input offset: 100mV
+
+| Input frekvens (Hz) | Output (Vpp) | Phase (deg) |
+|---------------------+--------------+-------------|
+|                  10 |        0.016 |           ? |
+|                  30 |        0.016 |           ? |
+|                 100 |        0.032 |         -10 |
+|                 300 |        0.170 |         -53 |
+|                1000 |         1.10 |        -150 |
+|                1300 |         1.17 |        -204 |
+|                1600 |         1.04 |        -231 |
+|                3000 |        0.450 |        -310 |
+|               10000 |        0.160 |        -365 |
+|               30000 |        0.064 |           ? |
+|              100000 |        0.040 |           ? |
