@@ -24,10 +24,10 @@ save_fig = (sys.argv[4] == "y")
 fontsize=14
 
 arr = np.loadtxt(filename,
-                 delimiter=",", dtype=float, skiprows=1)[:,0:2]
+                 delimiter=",", dtype=float, skiprows=1)[:,0:3]
 
 plt.figure(figsize=(15, 7))
-plt.plot(arr[:,0],arr[:,1])
+plt.plot(arr[:,0],arr[:,1+(plot_type=="Phase")])
 plt.xscale("log")
 plt.title(plot_title, fontsize=fontsize+4)
 plt.xlabel("Frequency (Hz)", fontsize=fontsize)
@@ -41,5 +41,5 @@ else:
 
 plt.grid()
 if save_fig:
-    plt.savefig(filename[0:-3]+"png")
+    plt.savefig(filename[0:-4]+"_"+plot_type+".png")
 plt.show()
