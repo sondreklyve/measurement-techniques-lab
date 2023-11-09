@@ -1,6 +1,9 @@
 #+title: Documentation
 
 * Microphone
+** Multisim schematic
+[[./microphone/microphone_schematic.png]]
+
 ** Bode plot measurements
 Input amplitude: 30mVpp
 Input offset: 100mV
@@ -17,7 +20,16 @@ Input offset: 100mV
 |               30000 |           0.71 |        -278 |
 |              100000 |           0.24 |        -293 |
 
+*** Peak to peak
+[[./microphone/microphone_measured_P2P.png]]
+[[./microphone/microphone_simulated_P2P.png]]
+
+*** Phase
+[[./microphone/microphone_measured_Phase.png]]
+
 * Filter
+[[./filter/filter_schematic.png]]
+
 ** Low pass filter
 R1: 10k
 R2: 10k
@@ -35,8 +47,7 @@ f0 = 1.06kHz
 ** Bandpass filter
 Bandwidth: f0_l - f0_h = 0.53kHz
 
-** Bode plot measurements
-
+** Measurements
 Input amplitude: 30mVpp
 Input offset: 100mV
 
@@ -54,7 +65,20 @@ Input offset: 100mV
 |               30000 |        0.064 |        -365 |
 |              100000 |        0.040 |        -365 |
 
+** Peak to peak
+[[./filter/filter_measured_P2P.png]]
+[[./filter/filter_simulated_P2P.png]]
+[[./filter/filter_simulated_P2P_rich.png]]
+
+** Phase
+[[./filter/filter_measured_Phase.png]]
+
+
 * Oscillator
+** Schematic
+[[./oscillator/schematic.png]]
+
+** Measurements
 Measured frequency: 1.578kHz
 Measured peak to peak: 1.26V
 
@@ -63,8 +87,16 @@ Simulated peak to peak: 2.1V
 
 Big difference in peak to peak due to error in physical components, especially capacitors.
 
-* LM555 piano
+** Transient sweep
+[[./oscillator/oscillator_transient_sweep.png]]
 
+* Digital controller
+
+* LM555 piano
+** Schematic
+[[./piano/schematic.png]]
+
+** Measuerments
 | Key number | Measuerd frequency (Hz) | Theoretical frequency (Hz) | Simulated frequency (Hz) |
 |          1 |                    1353 |                       1385 |                     1303 |
 |          2 |                    1135 |                       1161 |                     1130 |
