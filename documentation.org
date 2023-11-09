@@ -1,7 +1,7 @@
 #+title: Documentation
 
-* Mikrofon
-** Bode plot målinger
+* Microphone
+** Bode plot measurements
 Input amplitude: 30mVpp
 Input offset: 100mV
 
@@ -35,7 +35,7 @@ f0 = 1.06kHz
 ** Bandpass filter
 Bandwidth: f0_l - f0_h = 0.53kHz
 
-** Bode plot målinger
+** Bode plot measurements
 
 Input amplitude: 30mVpp
 Input offset: 100mV
@@ -53,3 +53,22 @@ Input offset: 100mV
 |               10000 |        0.160 |        -365 |
 |               30000 |        0.064 |        -365 |
 |              100000 |        0.040 |        -365 |
+
+* Oscillator
+Measured frequency: 1.578kHz
+Measured peak to peak: 1.26V
+
+Simulated frequency: 1.567kHz
+Simulated peak to peak: 2.1V
+
+Big difference in peak to peak due to error in physical components, especially capacitors.
+
+* LM555 piano
+
+| Key number | Measuerd frequency (Hz) | Theoretical frequency (Hz) | Simulated frequency (Hz) |
+|          1 |                    1353 |                       1385 |                     1303 |
+|          2 |                    1135 |                       1161 |                     1130 |
+|          3 |                     977 |                       1000 |                      962 |
+|          4 |                     856 |                        878 |                      840 |
+|          5 |                     765 |                        783 |                      763 |
+|          6 |                     690 |                        706 |                      690 |
