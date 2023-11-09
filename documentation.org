@@ -1,10 +1,11 @@
 #+title: Documentation
+#+AUTHOR: Ingrid Undeberget and Sondre Klyve
 
 * Microphone
 ** Multisim schematic
 [[./microphone/microphone_schematic.png]]
 
-** Bode plot measurements
+** Measurements
 Input amplitude: 30mVpp
 Input offset: 100mV
 
@@ -65,12 +66,12 @@ Input offset: 100mV
 |               30000 |        0.064 |        -365 |
 |              100000 |        0.040 |        -365 |
 
-** Peak to peak
+*** Peak to peak
 [[./filter/filter_measured_P2P.png]]
 [[./filter/filter_simulated_P2P.png]]
 [[./filter/filter_simulated_P2P_rich.png]]
 
-** Phase
+*** Phase
 [[./filter/filter_measured_Phase.png]]
 
 
@@ -87,7 +88,7 @@ Simulated peak to peak: 2.1V
 
 Big difference in peak to peak due to error in physical components, especially capacitors.
 
-** Transient sweep
+*** Transient sweep
 [[./oscillator/oscillator_transient_sweep.png]]
 
 * Digital controller
