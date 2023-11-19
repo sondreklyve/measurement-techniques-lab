@@ -104,6 +104,7 @@ Simulated frequency: 1.567kHz
 In our circuit, we use the reference voltage for both the oscillator, the microphone with filter and the piano. To control which of these that sends their output to the loudspeaker, we have implemented a digital control. The control consists of two flip flops and a multiplexer. It has four channels, each with a light. The button gives signal when pushed and a push will change the signal.
 
 ** Waveform diagram
+[[./digital_controller/waveform_diagram.jpg]]
 
 * LM555 piano
 ** Description
