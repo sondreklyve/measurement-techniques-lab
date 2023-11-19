@@ -1,8 +1,11 @@
 #+title: Documentation
 #+AUTHOR: Ingrid Undeberget and Sondre Klyve
-
+\newpage
 * Microphone
-** Multisim schematic
+** Physical principles
+We have used a capacitive microphone. It is built up by a diaphragm that detects the sound waves. The movement of the diaphragm causes the two plates in the capacitor to move, and thereby varying the capacitance, because the capacitance is inversely proportional with the distance between the two plates.
+
+** Multisim circuit schematics
 [[./microphone/microphone_schematic.png]]
 
 ** Measurements
@@ -29,27 +32,31 @@ Input offset: 100mV
 [[./microphone/microphone_measured_Phase.png]]
 
 * Filter
+** Cut-off frequencies
+*** Low pass filter
+R1: 10k\Omega\newline
+R2: 10k\Omega\newline
+C1: 10nF\newline
+C2: 10nF\newline
+$f_{0l} = \frac{1}{2\pi RC}= 1.59$ kHz
+
+*** High pass filter
+R1: 15k\Omega\newline
+R2: 15k\Omega\newline
+C1: 10nF\newline
+C2: 10nF\newline
+$f_{0h} = \frac{1}{2\pi RC}= 1.06$ kHz
+
+*** Bandpass filter
+Bandwidth: $f_{0l} - f_{0h} = 0.53$ kHz
+
+** Multisim circuit schematics
+Extension of microphone schematic with added filters. Made filters twice, first to see effects of each filter seperately, then to see the overall effect of both filters on the circuit.
 [[./filter/filter_schematic.png]]
 
-** Low pass filter
-R1: 10k
-R2: 10k
-C1: 10n
-C2: 10n
-f0 = 1.59kHz
-
-** High pass filter
-R1: 15k
-R2: 15k
-C1: 10n
-C2: 10n
-f0 = 1.06kHz
-
-** Bandpass filter
-Bandwidth: f0_l - f0_h = 0.53kHz
 
 ** Measurements
-Input amplitude: 30mVpp
+Input amplitude: 30mVpp\newline
 Input offset: 100mV
 
 | Input frekvens (Hz) | Output (Vpp) | Phase (deg) |
@@ -76,29 +83,44 @@ Input offset: 100mV
 
 
 * Oscillator
-** Schematic
+** Multisim circuit schematics
 [[./oscillator/schematic.png]]
 
 ** Measurements
-Measured frequency: 1.578kHz
-Measured peak to peak: 1.26V
-
-Simulated frequency: 1.567kHz
+*** Amplitude (Peak to peak)
+Measured peak to peak: 1.26V\newline
 Simulated peak to peak: 2.1V
 
 Big difference in peak to peak due to error in physical components, especially capacitors.
+*** Frequency
+Measured frequency: 1.578kHz\newline
+Simulated frequency: 1.567kHz
 
 *** Transient sweep
 [[./oscillator/oscillator_transient_sweep.png]]
 
 * Digital controller
+** Function description
+In our circuit, we use the reference voltage for both the oscillator, the microphone with filter and the piano. To control which of these that sends their output to the loudspeaker, we have implemented a digital control. The control consists of two flip flops and a multiplexer. It has four channels, each with a light. The button gives signal when pushed and a push will change the signal.
+
+** Waveform diagram
 
 * LM555 piano
-** Schematic
+** Description
+Depending on which button that is pressed, the resistance will vary. The change in resistance also changes the frequency with the relation
+\[
+f = \frac{1.44}{(R1+R2)\cdot C1}.
+\]
+Because the resistance is inversely proportional with the frequency, a higher resistance equals a lower frequency.
+
+Design inspired by [[https://elonics.org/electric-piano-circuit-using-555-ic/][this]] circuit.
+
+** Multisim circuit schematics
 [[./piano/schematic.png]]
 
 ** Measuerments
 | Key number | Measuerd frequency (Hz) | Theoretical frequency (Hz) | Simulated frequency (Hz) |
+|------------+-------------------------+----------------------------+--------------------------|
 |          1 |                    1353 |                       1385 |                     1303 |
 |          2 |                    1135 |                       1161 |                     1130 |
 |          3 |                     977 |                       1000 |                      962 |
